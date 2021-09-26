@@ -2,17 +2,20 @@
 
 #include <stdlib.h>
 
+#include <iostream>
 #include <vector>
 using namespace std;
 Neuron::Neuron(int inputNumber, int seed) {
     srand(seed);
     for (int i = 0; i < inputNumber; i++) {
-        weights.push_back(rand() / RAND_MAX);
+        float randm = (float)rand() / RAND_MAX;
+        randm = (randm - 0.5) * 2;
+        weights.push_back(randm);
     }
 }
 
 float Neuron::output(vector<float> inputs) {
-    int sum = 0;
+    float sum = 0;
     for (int i = 0; i < inputs.size(); i++) {
         sum += inputs[i] * weights[i];
     }
