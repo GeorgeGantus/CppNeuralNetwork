@@ -9,5 +9,6 @@ class Network {
    public:
     Network(int numInputs);
     void build();
+    void print();
     void addLayers(Layer layer);
 };

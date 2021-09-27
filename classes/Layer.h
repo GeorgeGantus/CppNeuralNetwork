@@ -13,4 +13,6 @@ class Layer {
     vector<float> output(vector<float> inputs);
     void setNumInputs(int numInputs);
     int getNumNeurons();
+    void build();
+    void print();
 };

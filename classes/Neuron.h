@@ -9,4 +9,5 @@ class Neuron {
    public:
     Neuron(int inputNumber, int seed);
     float output(vector<float> inputs);
+    void print();
 };

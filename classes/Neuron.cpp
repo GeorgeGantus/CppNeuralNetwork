@@ -7,6 +7,7 @@
 using namespace std;
 Neuron::Neuron(int inputNumber, int seed) {
     srand(seed);
+    bias = 0;
     for (int i = 0; i < inputNumber; i++) {
         float randm = (float)rand() / RAND_MAX;
         randm = (randm - 0.5) * 2;
@@ -24,4 +25,15 @@ float Neuron::output(vector<float> inputs) {
         return sum;
     else
         return 0;
+}
+
+void Neuron::print() {
+    cout << "Neuron" << endl;
+    cout << endl;
+    cout << "bias: " << bias;
+    cout << endl;
+    for (int i = 0; i < weights.size(); i++) {
+        cout << "weight " << i << ": " << weights[i] << endl;
+    }
+    cout << endl;
 }
