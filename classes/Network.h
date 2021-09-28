@@ -5,6 +5,7 @@ class Network {
    private:
     vector<Layer> layers;
     int numInputs;
+    vector<float> _compute(vector<float> input);
 
    public:
     Network(int numInputs);

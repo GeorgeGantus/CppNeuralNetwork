@@ -21,6 +21,13 @@ void Network::build() {
     }
 }
 
+vector<float> Network::_compute(vector<float> input) {
+    vector<Layer>::iterator layer;
+    for (layer = layers.begin(); layer < layers.end(); layer++) {
+        input = (*layer).output(input);
+    }
+    return input;
+}
 void Network::print() {
     vector<Layer>::iterator layer;
     cout << "**********Network**********" << endl;
