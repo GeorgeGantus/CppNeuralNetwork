@@ -6,7 +6,9 @@ class Network {
     vector<Layer> layers;
     int numInputs;
     float _getBatchCrossEntropyError(vector<vector<float>> X, vector<vector<int>> Y);
+    float _getBatchMeanSquaredError(vector<vector<float>> X, vector<float> Y);
     vector<float> _compute(vector<float> input);
+    vector<float> _softmax(vector<float> input);
 
    public:
     Network(int numInputs);

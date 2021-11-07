@@ -10,7 +10,7 @@ class Layer {
 
    public:
     Layer(int numNeurons);
-    vector<float> output(vector<float> inputs);
+    vector<vector<float>> output(vector<float> inputs);
     void setNumInputs(int numInputs);
     int getNumNeurons();
     void build();

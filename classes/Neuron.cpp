@@ -20,11 +20,7 @@ float Neuron::output(vector<float> inputs) {
     for (int i = 0; i < inputs.size(); i++) {
         sum += inputs[i] * weights[i];
     }
-    //Activation = relu
-    if (sum >= 0)
-        return sum;
-    else
-        return 0;
+    return sum;
 }
 
 void Neuron::print() {

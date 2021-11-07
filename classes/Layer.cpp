@@ -1,5 +1,7 @@
 #include "Layer.h"
 
+#include <math.h>
+
 #include <iostream>
 Layer::Layer(int numNeurons) {
     this->numNeurons = numNeurons;
@@ -29,11 +31,20 @@ void Layer::print() {
     }
 }
 
-vector<float> Layer::output(vector<float> inputs) {
+vector<vector<float>> Layer::output(vector<float> inputs) {
     vector<Neuron>::iterator neuron;
     vector<float> out;
+    vector<float> weightedInputs;
     for (neuron = neurons.begin(); neuron < neurons.end(); neuron++) {
-        out.push_back((*neuron).output(inputs));
+        out.push_back(sigmoid((*neuron).output(inputs)));
+        weightedInputs.push_back(1);
     }
-    return out;
+    vector<vector<float>> ret;
+    ret.push_back(out);
+    ret.push_back(weightedInputs);
+    return ret;
+}
+
+float sigmoid(float x) {
+    return 1 / (1 + exp(-1 * x));
 }
