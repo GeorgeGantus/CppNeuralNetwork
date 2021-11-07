@@ -1,3 +1,4 @@
+
 #include <math.h>
 float meanSquaredError(float y, float yHat) {
     return pow(y - yHat, 2) / 2;
