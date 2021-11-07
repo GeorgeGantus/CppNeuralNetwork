@@ -3,6 +3,7 @@
 #include <math.h>
 
 #include <iostream>
+
 Layer::Layer(int numNeurons) {
     this->numNeurons = numNeurons;
 }
@@ -16,9 +17,12 @@ int Layer::getNumNeurons() {
 }
 
 void Layer::build() {
+    weightMatrix.clear();
     for (int i = 0; i < numNeurons; i++) {
+        vector<float> weights;
         Neuron n(numInputs, 42);
         neurons.push_back(n);
+        weightMatrix.push_back(n.getWeights());
     }
 }
 
@@ -43,8 +47,4 @@ vector<vector<float>> Layer::output(vector<float> inputs) {
     ret.push_back(out);
     ret.push_back(weightedInputs);
     return ret;
-}
-
-float sigmoid(float x) {
-    return 1 / (1 + exp(-1 * x));
 }

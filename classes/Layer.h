@@ -1,5 +1,6 @@
 #include <vector>
 
+#include "../helper/globals.h"
 #include "Neuron.h"
 using namespace std;
 class Layer {
@@ -7,6 +8,7 @@ class Layer {
     int numNeurons;
     int numInputs;
     vector<Neuron> neurons;
+    vector<vector<float>> weightMatrix;
 
    public:
     Layer(int numNeurons);

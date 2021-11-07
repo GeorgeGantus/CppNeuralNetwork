@@ -33,3 +33,7 @@ void Neuron::print() {
     }
     cout << endl;
 }
+
+vector<float> Neuron::getWeights() {
+    return weights;
+}

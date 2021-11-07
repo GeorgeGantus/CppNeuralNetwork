@@ -1,5 +1,6 @@
 #include <vector>
 
+#include "Layer.h"
 class NetworkBatchData {
    private:
     vector<vector<float>> _layersResults;
@@ -12,5 +13,5 @@ class NetworkBatchData {
     void resetBatch();
     void saveCurrentLayerResult(vector<float> a);
     void saveCurrentLayerWeightedInput(vector<float> a);
-    void computeDelta(float y);
+    void computeDelta(float y, vector<Layer> layers);
 };
