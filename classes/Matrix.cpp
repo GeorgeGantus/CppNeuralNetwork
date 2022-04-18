@@ -19,6 +19,13 @@ Matrix::Matrix(int width, int height) {
     this->data = data;
 }
 
+Matrix::~Matrix() {
+    for (int i = 0; i < height; i++) {
+        delete[] data[i];
+    }
+    delete[] data;
+}
+
 Matrix Matrix::operator+(Matrix m) {
     if (m.width != width | m.height != height) {
         throw std::invalid_argument("matrices must have compatible sizes");

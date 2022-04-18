@@ -6,6 +6,7 @@ class Matrix {
 
    public:
     Matrix(int width, int height);
+    ~Matrix();
     int getHeight();
     int getWidth();
     void print();
