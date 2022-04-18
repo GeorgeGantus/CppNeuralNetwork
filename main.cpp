@@ -23,5 +23,17 @@ int main() {
     m2.print();
 
     Matrix m3 = m1.matricialMultiplication(m2);
-    m3.print();
+    //m3.print();
+
+    //Matricial sum
+    Matrix m4 = m1 + m2;
+    //m4.print();
+
+    //Scalar multiplication
+    Matrix m5 = m1 * 2;
+    //m5.print();
+
+    //item-item multiplication
+    Matrix m6 = m1 * m2;
+    m6.print();
 }

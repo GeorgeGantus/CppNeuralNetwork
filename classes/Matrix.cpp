@@ -19,6 +19,41 @@ Matrix::Matrix(int width, int height) {
     this->data = data;
 }
 
+Matrix Matrix::operator+(Matrix m) {
+    if (m.width != width | m.height != height) {
+        throw std::invalid_argument("matrices must have compatible sizes");
+    }
+    Matrix sum = Matrix(width, height);
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+            sum.data[i][j] = m.data[i][j] + data[i][j];
+        }
+    }
+    return sum;
+}
+Matrix Matrix::operator*(float val) {
+    Matrix mult = Matrix(width, height);
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+            mult.data[i][j] = data[i][j] * val;
+        }
+    }
+    return mult;
+}
+
+Matrix Matrix::operator*(Matrix m) {
+    if (m.width != width | m.height != height) {
+        throw std::invalid_argument("matrices must have compatible sizes");
+    }
+    Matrix mult = Matrix(width, height);
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+            mult.data[i][j] = m.data[i][j] * data[i][j];
+        }
+    }
+    return mult;
+}
+
 int Matrix::getHeight() {
     return height;
 }
