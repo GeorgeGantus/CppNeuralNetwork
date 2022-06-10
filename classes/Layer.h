@@ -1,20 +1,19 @@
 #include <vector>
 
 #include "../helper/globals.h"
+#include "Matrix.h"
 #include "Neuron.h"
 using namespace std;
 class Layer {
    private:
     int numNeurons;
-    int numInputs;
-    vector<Neuron> neurons;
-    vector<vector<float>> weightMatrix;
+    Matrix biasMatrix;
+    Matrix weightMatrix;
+    Matrix weightedOutput;
+    Matrix activation;
 
    public:
     Layer(int numNeurons);
-    vector<vector<float>> output(vector<float> inputs);
-    void setNumInputs(int numInputs);
-    int getNumNeurons();
-    void build();
-    void print();
+    void build(int numInNeurons);
+    Matrix output(Matrix input);
 };

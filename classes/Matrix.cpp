@@ -105,3 +105,13 @@ Matrix Matrix::matricialMultiplication(Matrix m) {
     }
     return result;
 }
+
+Matrix Matrix::applyFunc(float (*func)(float)) {
+    Matrix applied = Matrix(width, height);
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+            applied.data[i][j] = func(data[i][j]);
+        }
+    }
+    return applied;
+}

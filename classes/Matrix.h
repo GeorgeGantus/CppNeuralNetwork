@@ -5,7 +5,7 @@ class Matrix {
     int height;
 
    public:
-    Matrix(int width, int height);
+    Matrix(int width = 1, int height = 1);
     ~Matrix();
     int getHeight();
     int getWidth();
@@ -15,5 +15,6 @@ class Matrix {
     Matrix operator+(Matrix m);
     Matrix operator*(float val);
     Matrix operator*(Matrix m);
+    Matrix applyFunc(float (*func)(float));
     float **data;
 };
