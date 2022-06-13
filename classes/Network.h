@@ -1,14 +1,16 @@
 #include <vector>
 
 #include "Layer.h"
+#include "Matrix.h"
+
 class Network {
    private:
     vector<Layer> layers;
     int numInputs;
     float _getBatchCrossEntropyError(vector<vector<float>> X, vector<vector<int>> Y);
     float _getBatchMeanSquaredError(vector<vector<float>> X, vector<float> Y);
-    vector<float> _compute(vector<float> input);
-    vector<float> _softmax(vector<float> input);
+    Matrix _computeLastLayerError(Matrix yHat);
+    Matrix _compute(Matrix input);
 
    public:
     Network(int numInputs);

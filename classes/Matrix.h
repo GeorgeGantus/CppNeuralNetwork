@@ -10,9 +10,11 @@ class Matrix {
     int getHeight();
     int getWidth();
     void print();
+    void randomize();
     void scalarMultiplication(float value);
     Matrix matricialMultiplication(Matrix m);
     Matrix operator+(Matrix m);
+    Matrix operator-(Matrix m);
     Matrix operator*(float val);
     Matrix operator*(Matrix m);
     Matrix applyFunc(float (*func)(float));

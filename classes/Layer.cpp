@@ -18,3 +18,11 @@ Matrix Layer::output(Matrix input) {
     activation = weightedOutput.applyFunc(&sigmoid);
     return activation;
 }
+
+int Layer::getNumNeurons() {
+    return numNeurons;
+}
+
+Matrix Layer::getWeightedOutput() {
+    return weightedOutput;
+}

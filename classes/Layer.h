@@ -10,10 +10,12 @@ class Layer {
     Matrix biasMatrix;
     Matrix weightMatrix;
     Matrix weightedOutput;
-    Matrix activation;
 
    public:
+    Matrix activation;
     Layer(int numNeurons);
     void build(int numInNeurons);
     Matrix output(Matrix input);
+    int getNumNeurons();
+    Matrix getWeightedOutput();
 };

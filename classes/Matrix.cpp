@@ -38,6 +38,20 @@ Matrix Matrix::operator+(Matrix m) {
     }
     return sum;
 }
+
+Matrix Matrix::operator-(Matrix m) {
+    if (m.width != width | m.height != height) {
+        throw std::invalid_argument("matrices must have compatible sizes");
+    }
+    Matrix sub = Matrix(width, height);
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+            sub.data[i][j] = data[i][j] - m.data[i][j];
+        }
+    }
+    return sub;
+}
+
 Matrix Matrix::operator*(float val) {
     Matrix mult = Matrix(width, height);
     for (int i = 0; i < height; i++) {
@@ -79,6 +93,14 @@ void Matrix::print() {
         cout << endl;
     }
     cout << endl;
+}
+void Matrix::randomize() {
+    // TODO: really randomize the data
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+            data[i][j] = 1;
+        }
+    }
 }
 
 void Matrix::scalarMultiplication(float value) {
