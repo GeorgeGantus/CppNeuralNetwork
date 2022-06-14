@@ -1,39 +1,25 @@
 #include <iostream>
 #include <vector>
 
+#include "classes/Layer.h"
 #include "classes/Matrix.h"
+#include "classes/Network.h"
 using namespace std;
 int main() {
-    /* Layer layer1(2);
-    Network network(2);
-    network.addLayers(layer1);
-    network.build();
-    network.print();
-    cout << "ok"; */
-    Matrix m1(2, 2);
-    m1.data[1][1] = 2;
-    m1.data[0][0] = 1;
-    m1.data[0][1] = 1;
-    m1.print();
-    //m1.scalarMultiplication(2.5);
-    Matrix m2(2, 2);
-    m2.data[0][1] = 1;
-    m2.data[1][0] = 1;
-    m2.data[1][1] = 1;
-    m2.print();
+    Layer l1(2);
+    Layer l2(2);
+    Network net(2);
+    net.addLayers(l1);
+    net.addLayers(l2);
+    net.build();
 
-    Matrix m3 = m1.matricialMultiplication(m2);
-    //m3.print();
+    Matrix input(1, 2);
+    input.data[0][0] = 1;
+    input.data[0][1] = 1;
 
-    //Matricial sum
-    Matrix m4 = m1 + m2;
-    //m4.print();
-
-    //Scalar multiplication
-    Matrix m5 = m1 * 2;
-    //m5.print();
-
-    //item-item multiplication
-    Matrix m6 = m1 * m2;
-    m6.print();
+    Matrix teste(2, 2);
+    Matrix a = input.matricialMultiplication(teste);
+    a.print();
+    /* net.build();
+    net._compute(input); */
 }

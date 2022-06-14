@@ -1,3 +1,4 @@
+#pragma once
 #include <vector>
 
 #include "Layer.h"
@@ -10,11 +11,11 @@ class Network {
     float _getBatchCrossEntropyError(vector<vector<float>> X, vector<vector<int>> Y);
     float _getBatchMeanSquaredError(vector<vector<float>> X, vector<float> Y);
     Matrix _computeLastLayerError(Matrix yHat);
-    Matrix _compute(Matrix input);
 
    public:
     Network(int numInputs);
     void build();
     void print();
-    void addLayers(Layer layer);
+    void addLayers(Layer &layer);
+    Matrix _compute(Matrix &input);
 };

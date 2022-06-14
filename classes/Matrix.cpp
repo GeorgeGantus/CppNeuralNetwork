@@ -6,7 +6,7 @@
 
 using namespace std;
 
-Matrix::Matrix(int width, int height) {
+Matrix::Matrix(int height, int width) {
     this->width = width;
     this->height = height;
     float **data = new float *[height];

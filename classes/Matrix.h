@@ -1,11 +1,11 @@
-
+#pragma once
 class Matrix {
    private:
     int width;
     int height;
 
    public:
-    Matrix(int width = 1, int height = 1);
+    Matrix(int height = 1, int width = 1);
     ~Matrix();
     int getHeight();
     int getWidth();

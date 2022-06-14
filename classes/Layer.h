@@ -1,6 +1,6 @@
+#pragma once
 #include <vector>
 
-#include "../helper/globals.h"
 #include "Matrix.h"
 #include "Neuron.h"
 using namespace std;
@@ -15,7 +15,7 @@ class Layer {
     Matrix activation;
     Layer(int numNeurons);
     void build(int numInNeurons);
-    Matrix output(Matrix input);
+    Matrix output(Matrix &input);
     int getNumNeurons();
     Matrix getWeightedOutput();
 };

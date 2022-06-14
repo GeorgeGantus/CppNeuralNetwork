@@ -4,7 +4,7 @@
 
 #include <iostream>
 
-#include "globals.h"
+#include "../helper/globals.h"
 
 Network::Network(int numInputs) {
     this->numInputs = numInputs;
@@ -18,12 +18,17 @@ void Network::build() {
     }
 }
 
-Matrix Network::_compute(Matrix input) {
+void Network::addLayers(Layer &l) {
+    layers.push_back(l);
+}
+
+Matrix Network::_compute(Matrix &input) {
     Matrix activation = input;
     for (int i = 0; i < layers.size(); i++) {
         layers[i].output(activation);
         activation = layers[i].activation;
     }
+    return activation;
 }
 
 Matrix Network::_computeLastLayerError(Matrix yHat) {

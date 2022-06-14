@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-#include "globals.h"
+#include "../helper/globals.h"
 
 Layer::Layer(int numNeurons) {
     this->numNeurons = numNeurons;
@@ -13,8 +13,8 @@ void Layer::build(int numInNeurons) {
     weightMatrix = Matrix(numNeurons, numInNeurons);
 }
 
-Matrix Layer::output(Matrix input) {
-    weightedOutput = weightMatrix.matricialMultiplication(input) + biasMatrix;
+Matrix Layer::output(Matrix &input) {
+    weightedOutput = input.matricialMultiplication(weightMatrix) + biasMatrix;
     activation = weightedOutput.applyFunc(&sigmoid);
     return activation;
 }
